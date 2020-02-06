@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-import { Platform, StyleSheet, Text, View, Button, TouchableOpacity, TextInput } from 'react-native';
-import { Icon } from 'react-native-elements'
+import { ScrollView, Platform, StyleSheet, Text, View, Button, TouchableOpacity, TextInput } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
 
 const BtnWords = {
   text1: 'Hello There!',
-  text2: 'I am Money Mitra.\nI’ll be your money genie!',
+  text2: 'I am Mr. Money Mitra.\nI’ll be your money genie!',
   text3: 'What can I help you with\ntoday?',
   atm: 'Nearby\nATMs',
   bank:'Nearby\nBanks',
@@ -21,12 +22,112 @@ const Discarded = {
   btn4:"<Button title={BtnWords.po} underlayColor='#FFF' style={styles.row2btn}></Button>",
   btn5:"<Button title={BtnWords.csc} underlayColor='#FFF' style={styles.row3btn}></Button>",
   btn6:"<Button title={BtnWords.mmic} underlayColor='#FFF' style={styles.row3btn}></Button>",
+};
+
+const styles = StyleSheet.create(
+  {
+    supercontainer: {
+      flex: 5,
+      flexDirection: 'column',
+      justifyContent: 'center',
+      alignItems: 'center',
+    },
+    textcontainer: {
+      flex: 2.3,
+      justifyContent: 'center',
+      alignItems: 'center',
+      backgroundColor: '#FFFFFF',
+    },
+    buttoncontainer:{
+      flex: 0.9,
+      flexDirection: 'row',
+      justifyContent: 'space-around',
+      alignItems: 'center',
+      backgroundColor: '#fff',
+    },
+    hw: {
+      fontSize: 24,
+      textAlign: 'center',
+      marginTop:25,
+    },
+    row1btn:{
+      backgroundColor:'#cd3c29',
+      flex:0.4,
+      height:120,
+      alignItems: 'center',
+      textAlign:'center',
+      textAlignVertical:'center',
+      borderRadius:10,
+      color:'white',
+      fontSize: 20,
+
+    },
+    row2btn:{
+      backgroundColor:'#69a84f',
+      flex:0.4,
+      height:120,
+      alignItems: 'center',
+      textAlign:'center',
+      textAlignVertical:'center',
+      borderRadius:10,
+      color:'white',
+      fontSize: 20,
+    },
+    row3btn:{
+      backgroundColor:'#3d85c6',
+      flex:0.4,
+      height:120,
+      alignItems: 'center',
+      textAlign:'center',
+      textAlignVertical:'center',
+      borderRadius:10,
+      flexWrap:'wrap',
+      color:'white',
+      fontSize: 20,
+    },
+  }
+);
+
+
+function HomeScreen({ navigation }) {
+  return (
+    <View style={styles.supercontainer}>
+      <View style={styles.textcontainer}>
+        <Text style={styles.hw}>{BtnWords.text1}</Text>
+        <Text style={styles.hw}>{BtnWords.text2}</Text>
+        <Text style={styles.hw}>{BtnWords.text3}</Text>
+      </View>
+
+      <View style={styles.buttoncontainer}>
+        <Button
+          style = {styles.row1btn}
+          title={BtnWords.atm}
+          onPress={() => navigation.navigate('Details')}
+        />
+        <Button
+          style = {styles.row1btnn}
+          title={BtnWords.bank}
+          onPress={() => navigation.navigate('Details')}
+        />
+      </View>
+
+      <View style={styles.buttoncontainer}>
+        <Text style={styles.row2btn}>{BtnWords.mitra}</Text>
+        <Text style={styles.row2btn}>{BtnWords.po}</Text>
+      </View>
+
+
+      <View style={styles.buttoncontainer}>
+        <Text style={styles.row3btn}>{BtnWords.csc}</Text>
+        <Text style={styles.row3btn}>{BtnWords.mmic}</Text>
+      </View>
+    </View>
+  );
 }
 
-export default class App extends Component {
-  render() {
-    return (
-      <View style={styles.supercontainer}>
+function DetailsScreen() {
+  return (
+    <View style={styles.supercontainer}>
 
         <View style={styles.searchBox}>
           <TouchableOpacity style={styles.aBtntext}><Text style={styles.texB}>Search</Text></TouchableOpacity>
@@ -101,140 +202,19 @@ export default class App extends Component {
 
       </View>
     );
-  }
 }
 
-const styles = StyleSheet.create({
-  texB: {
-    alignItems: 'center',
-    textAlign:'center',
-    textAlignVertical:'center',
-    color:'black',
-    fontSize: 18,
-    height:60,
+const Stack = createStackNavigator();
 
-  },
-  icnB: {
-    alignItems: 'center',
-    textAlign:'center',
-    textAlignVertical:'center',
-    color:'black',
-    fontSize: 18,
-    height:40,
+function App() {
+  return (
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="Home">
+        <Stack.Screen name="Home" component={HomeScreen} />
+        <Stack.Screen name="Details" component={DetailsScreen} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+}
 
-  },
-  disB: {
-    alignItems: 'center',
-    textAlign:'center',
-    textAlignVertical:'center',
-    color:'black',
-    fontSize: 18,
-    height:80,
-    color:'red',
-  },
-  supercontainer: {
-    flex: 5,
-    flexDirection: 'column',
-    justifyContent: 'center',
-
-  },
-  textcontainer: {
-    flex: 2.3,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#FFFFFF',
-  },
-  buttoncontainerA:{
-    flex:0.1,
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-    alignItems: 'center',
-    backgroundColor:'#f4cccc',
-    margin:5,
-    borderRadius:10,
-    padding:5,
-    borderWidth:2,
-    borderColor:'#ff7777',
-  },
-  buttoncontainerB:{
-    flex:0.1,
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-    alignItems: 'center',
-    backgroundColor:'#ccf4cc',
-    margin:5,
-    borderRadius:10,
-    padding:5,
-    borderWidth:2,
-    borderColor:'#33ff33',
-  },
-  searchBox: {
-    flex:0.1,
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-    alignItems: 'center',
-    backgroundColor:'#cccccc',
-    margin:5,
-    borderRadius:10,
-    padding:5,
-    borderWidth:2,
-    borderColor:'#666666',
-  },
-  hw: {
-    fontSize: 24,
-    textAlign: 'center',
-    marginTop:25,
-  },
-  searchF:{
-    width:500,
-    backgroundColor:'#ffffff22',
-    flex:0.5,
-    height:60,
-    alignItems: 'center',
-    textAlign:'center',
-    textAlignVertical:'center',
-    borderRadius:2,
-    color:'black',
-    fontSize: 18,
-    borderColor:'#e06666',
-
-  },
-  aBtntext:{
-    backgroundColor:'#ffffff22',
-    flex:0.4,
-    height:60,
-    alignItems: 'center',
-    textAlign:'center',
-    textAlignVertical:'center',
-    borderRadius:2,
-    color:'black',
-    fontSize: 18,
-    borderColor:'#e06666',
-
-  },
-  aBtnicon:{
-    backgroundColor:'#ffffff22',
-    flex:0.12,
-    height:46,
-    alignItems: 'center',
-    textAlign:'center',
-    textAlignVertical:'center',
-    borderRadius:100,
-    color:'black',
-    fontSize: 20,
-    borderColor:'#000000',
-    borderWidth:2,
-  },
-  aBtndist:{
-
-    flex:0.15,
-    height:80,
-    alignItems: 'center',
-    textAlign:'center',
-    textAlignVertical:'center',
-    borderRadius:50,
-    color:'red',
-    fontSize: 20,
-    borderColor:'#e06666',
-  },
-});
+export default App;
