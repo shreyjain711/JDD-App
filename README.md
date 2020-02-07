@@ -1,3 +1,19 @@
+Problem statement: 
+PS Number: [MK21](https://www.sih.gov.in/sih2020PS/MTA=/U29mdHdhcmU=/QWxs/QWxs)
+Organization: Department of Financial Services
+Category: Software
+Domain Bucket: Software - Mobile App development
+
+
+Team members: All of us are in our Junior year & in COE branch
+Team Leader: Muskan Khandelwal (2017UCO1596, muskankhandelwal369@gmail.com)
+Ishaan Rawat (2017UCO1644, ishaan.rawat611@gmail.com)
+Anish Jangra (2017UCO1654, jangra.anish11@gmail.com)
+Divya Rawat (2017UCO1610, rawat.divya1000@gmail.com)
+Mansi Joshi (2017UCO1576, mansij.co.17@nsit.net.in)
+Shrey Jain (2017UCO1647, shrey.jain1107@gmail.com)
+
+
 # <center> **Jan Dhan Darshak 2.0 - Money Mitra** </center>
 The application is built using react-native.
 
