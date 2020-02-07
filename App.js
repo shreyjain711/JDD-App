@@ -5,7 +5,19 @@ import { createStackNavigator } from '@react-navigation/stack';
 import Header from './components/Header';
 import { HomeScreen } from './components/HomeScreen'
 import { DetailsScreen } from './components/DetailsScreen'
-
+import GetLocation from 'react-native-get-location'
+ 
+GetLocation.getCurrentPosition({
+    enableHighAccuracy: true,
+    timeout: 15000,
+})
+.then(location => {
+    console.log(location);
+})
+.catch(error => {
+    const { code, message } = error;
+    console.warn(code, message);
+})
 
 
 function LogoTitle() {
