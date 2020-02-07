@@ -43,4 +43,6 @@ target 'JDDProto1' do
 
   # react-native-cli autolinking
   use_native_modules!
+  pod 'RNRestapi', :path => '../node_modules/mapmyindia-restapi-react-native-beta'
+
 end
