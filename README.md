@@ -6,7 +6,7 @@ The presentation
 
 The faculty presentation & QnA - [Link](https://docs.google.com/document/d/1AVjPQpqvhqS5oC6XMYBTqxXloRMsYMaMbRs-VJbszb0/edit?usp=sharing)
 
-App's Demo Video - [Link(Under progress)]()
+App's Demo Video - [Link](https://www.youtube.com/playlist?list=PLTjMBJkOemS8PD8wzyVfKZ7GAaBdDU46O)
 
 Chatbot's demo - [Link](https://links.collect.chat/5e3a571641dfeb5054b67ff3)
 (the chatbot we'll be implementing will be functioning similarly to the above example. It would be implemented using [react native chatbot](https://github.com/LucasBassetti/react-native-chatbot))
