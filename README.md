@@ -6,8 +6,10 @@ The presentation
 
 The faculty presentation & QnA - [Link](https://docs.google.com/document/d/1AVjPQpqvhqS5oC6XMYBTqxXloRMsYMaMbRs-VJbszb0/edit?usp=sharing)
 
-The Demo Video - [Link(Under progress)]()
+App's Demo Video - [Link(Under progress)]()
 
+Chatbot's demo - [Link]()
+(the chatbot we'll be implementing will be functioning similarly to the above example. It would be implemented using [react native chatbot](https://github.com/LucasBassetti/react-native-chatbot))
 
 ## Before You start
 You will need to download Expo on your android device to use the application.
