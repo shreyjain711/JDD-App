@@ -15,12 +15,12 @@ const BtnWords = {
     text1: 'Hello There!',
     text2: 'I am Mr. Money Mitra.\nI’ll be your money genie!',
     text3: 'What can I help you with\ntoday?',
-    atm: 'Nearby\nATMs',
-    bank:'Nearby\nBanks',
-    mitra:'Nearby\nBank Mitra',
-    po: 'Nearby\nPost Office',
-    csc:'Nearby\nCommon\nService Center',
-    mmic:'Money Mitra\nInformation\nCenter'
+    atm: '\n        Nearby        \n\nATMs\n',
+    bank:'\n        Nearby        \n\nBanks\n',
+    mitra:'\n        Nearby        \n\nBank Mitra\n',
+    po: '\n        Nearby        \n\nPost Office\n',
+    csc:'\n        Nearby        \nCommon\nService Center\n',
+    mmic:'\n  Money Mitra  \nInformation\nCenter\n'
   };
 
   const Discarded = {
