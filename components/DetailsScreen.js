@@ -4,8 +4,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import Header from './Header';
 import { HomeScreen } from './HomeScreen';
-
-
+var styles = require('../style');
 
 export function DetailsScreen() {
     return (

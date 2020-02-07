@@ -6,6 +6,8 @@ import Header from './components/Header';
 import { HomeScreen } from './components/HomeScreen'
 import { DetailsScreen } from './components/DetailsScreen'
 
+
+
 function LogoTitle() {
   return (
     <Image
@@ -13,7 +15,6 @@ function LogoTitle() {
       source={{uri: '' }} />
  );
 }
-
 
 
 
