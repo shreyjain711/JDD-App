@@ -1,11 +1,11 @@
 # <center> **Jan Dhan Darshak 2.0 - Money Mitra** </center>
 The application is built using react-native.
 
-<br>
-The presentation - [Link](https://docs.google.com/presentation/d/1uJgolhnu4V9Cf6KF92jN5Vuutspmrta3JNznDLJgWpk/edit?usp=sharing)
-<br><br>
+The presentation
+[Link](https://docs.google.com/presentation/d/1uJgolhnu4V9Cf6KF92jN5Vuutspmrta3JNznDLJgWpk/edit?usp=sharing)
+
 The faculty presentation & QnA - [Link](https://docs.google.com/document/d/1AVjPQpqvhqS5oC6XMYBTqxXloRMsYMaMbRs-VJbszb0/edit?usp=sharing)
-<br><br>
+
 The Demo Video - [Link(Under progress)]()
 
 
