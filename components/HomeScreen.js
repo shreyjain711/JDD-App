@@ -45,11 +45,13 @@ export function HomeScreen({navigation}) {
 
         <View style={styles.buttoncontainer}>
           <Button
+            color= {'#cd3c29'}
             style = {styles.row1btn}
             title={BtnWords.atm}
             onPress={() => navigation.navigate('ATMs')}
           />
           <Button
+            color= {'#cd3c29'}
             style = {styles.row1btnn}
             title={BtnWords.bank}
             onPress={() => navigation.navigate('Banks')}
@@ -58,11 +60,13 @@ export function HomeScreen({navigation}) {
 
         <View style={styles.buttoncontainer}>
           <Button
+            color= {'#69a84f'}
             style = {styles.row2btn}
             title={BtnWords.mitra}
             onPress={() => navigation.navigate('BMs')}
           />
           <Button
+            color= {'#69a84f'}
             style = {styles.row2btn}
             title={BtnWords.po}
             onPress={() => navigation.navigate('POs')}
@@ -72,11 +76,13 @@ export function HomeScreen({navigation}) {
 
         <View style={styles.buttoncontainer}>
           <Button
+            color= {'#3d85c6'}
             style = {styles.row2btn}
             title={BtnWords.csc}
             onPress={() => navigation.navigate('CSCs')}
           />
           <Button
+            color= {'#3d85c6'}
             style = {styles.row2btn}
             title={BtnWords.mmic}
             onPress={() => navigation.navigate('MMIC')}
