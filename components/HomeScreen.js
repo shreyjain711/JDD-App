@@ -13,7 +13,7 @@ var styles = require('../style');
 
 const BtnWords = {
     text1: 'Hello There!',
-    text2: 'I am Mr. Money Mitra.\nI’ll be your money genie!',
+    text2: 'I am Money Mitra.\nI’ll be your money genie!',
     text3: 'What can I help you with\ntoday?',
     atm: '\n        Nearby        \n\nATMs\n',
     bank:'\n        Nearby        \n\nBanks\n',
