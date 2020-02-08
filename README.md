@@ -4,6 +4,7 @@ Organization: Department of Financial Services
 Category: Software
 Domain Bucket: Software - Mobile App development
 
+![Team Photo](https://raw.githubusercontent.com/shreyjain711/JDD-App/master/team%20photo.jpg)
 
 Team members: All of us are in our Junior year & in COE branch
 Team Leader: Muskan Khandelwal (2017UCO1596, muskankhandelwal369@gmail.com)
