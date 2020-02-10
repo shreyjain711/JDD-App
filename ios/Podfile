@@ -45,4 +45,10 @@ target 'JDDProto1' do
   use_native_modules!
   pod 'RNRestapi', :path => '../node_modules/mapmyindia-restapi-react-native-beta'
 
+  pod 'ReactNativeGetLocation', :path => '../node_modules/react-native-get-location'
+
+  pod 'react-native-geolocation', :path => '../node_modules/@react-native-community/geolocation'
+
+  pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
+
 end
