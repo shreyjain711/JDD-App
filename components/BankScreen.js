@@ -3,7 +3,7 @@ import axios from 'axios';
 import styles from './ApiStyles';
 import {
     View, Button, FlatList, ActivityIndicator, Alert,
-    Text, 
+    Text, List, 
     TouchableOpacity
 } from "react-native";
 
@@ -24,7 +24,6 @@ class ApiContainer extends Component {
 
     };
 
- 
 
     async componentWillMount(){
         navigator.geolocation.getCurrentPosition(
@@ -50,20 +49,42 @@ class ApiContainer extends Component {
 
         })
         
-        fetch(`https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${this.state.lat},${this.state.long}&${API_KEY}`)
+        fetch(`https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${this.state.lat},${this.state.long}&type=bank&radius=1000&key=`)
               .then(response => response.json())
               .then((responseJson) => {
                   console.log('getting data from fetch', responseJson)
                   setTimeout(() => {
                       this.setState({
                           loading: false,
-                          axiosData:(responseJson)
+                          axiosData:(responseJson.results)
                       })
                   }, 2000)
 
               })
               .catch(error => console.log(error))       
-                      
+        
+              
+    }
+
+    FlatListSeparator = () => {
+        return (
+            <View style={{
+                height: .5,
+                width: "100%",
+                backgroundColor: "rgba(0,0,0,0.5)",
+            }}
+            />
+        );
+    }
+
+    renderItem = (data) => {
+        return (
+            <TouchableOpacity style={styles.list}>
+                <Text style={styles.lightText}>{data.item.name}</Text>
+                <Text style={styles.lightText}>{data.item.vicinity}</Text>
+                </TouchableOpacity>
+        )
+
     }
 
     render() {
@@ -85,7 +106,13 @@ class ApiContainer extends Component {
             </View>
 
             {
-                <Text>{JSON.stringify(axiosData)}</Text>
+
+                <FlatList
+                data={axiosData}
+                //ItemSeparatorComponent={FlatListItemSeparator}
+                renderItem={item => this.renderItem(item)}
+                keyExtractor={item => item.id.toString()}
+                />
             }
             {loading &&
                 <View style={styles.loader}>
