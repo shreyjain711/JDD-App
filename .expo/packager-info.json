@@ -1,5 +1,6 @@
 {
   "devToolsPort": 19002,
+<<<<<<< HEAD
   "expoServerPort": null,
   "packagerPort": null,
   "packagerPid": null,
@@ -7,4 +8,12 @@
   "packagerNgrokUrl": null,
   "ngrokPid": null,
   "webpackServerPort": null
+=======
+  "expoServerPort": 19000,
+  "packagerPort": 19003,
+  "packagerPid": 15830,
+  "expoServerNgrokUrl": "https://fu-ak6.anonymous.myproject.exp.direct",
+  "packagerNgrokUrl": "https://packager.fu-ak6.anonymous.myproject.exp.direct",
+  "ngrokPid": 15859
+>>>>>>> 5f15ff5a93e6cfa74e0a7f52bc64503daf32b8bd
 }

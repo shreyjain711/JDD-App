@@ -3,24 +3,42 @@ import { ScrollView, Platform, StyleSheet, Text, View, Button, TouchableOpacity,
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import  Header from './Header';
+<<<<<<< HEAD:components/HomeScreen.js
 import  ATMScreen  from './ATMScreen';
 import  BankScreen  from './BankScreen';
 import  BMScreen  from './BMScreen';
 import  POScreen  from './POScreen';
 import  CSCScreen  from './CSCScreen';
 import  MMICScreen  from './MMICScreen';
+=======
+import { ATMScreen } from './ATMScreen';
+import { BankScreen } from './BankScreen';
+import { BMScreen } from './BMScreen';
+import { POScreen } from './POScreen';
+import { CSCScreen } from './CSCScreen';
+import { MMICScreen } from './MMICScreen';
+>>>>>>> 5f15ff5a93e6cfa74e0a7f52bc64503daf32b8bd:App/JDD app/components/HomeScreen.js
 var styles = require('../style');
 
 const BtnWords = {
     text1: 'Hello There!',
-    text2: 'I am Mr. Money Mitra.\nI’ll be your money genie!',
+    text2: 'I am Money Mitra.\nI’ll be your money genie!',
     text3: 'What can I help you with\ntoday?',
+<<<<<<< HEAD:components/HomeScreen.js
     atm: '\n        Nearby        \n\nATMs\n',
     bank:'\n        Nearby        \n\nBanks\n',
     mitra:'\n        Nearby        \n\nBank Mitra\n',
     po: '\n        Nearby        \n\nPost Office\n',
     csc:'\n        Nearby        \nCommon\nService Center\n',
     mmic:'\n  Money Mitra  \nInformation\nCenter\n'
+=======
+    atm: '\n            Nearby            \n\nATMs\n',
+    bank:'\n            Nearby            \n\nBanks\n',
+    mitra:'\n            Nearby            \n\nBank Mitra\n',
+    po: '\n            Nearby            \n\nPost Office\n',
+    csc:'\n            Nearby            \nCommon\nService Center\n',
+    mmic:'\n      Money Mitra      \nInformation\nCenter\n'
+>>>>>>> 5f15ff5a93e6cfa74e0a7f52bc64503daf32b8bd:App/JDD app/components/HomeScreen.js
   };
 
   const Discarded = {
