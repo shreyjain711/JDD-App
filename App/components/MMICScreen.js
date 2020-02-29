@@ -1,22 +1,104 @@
 import React, { Component } from 'react';
-import { ScrollView, Platform, StyleSheet, Text, View, Button, TouchableOpacity, TextInput } from 'react-native';
-import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
-import Header from './Header';
-import { HomeScreen } from './HomeScreen';
-var styles = require('../style');
+import axios from 'axios';
+import styles from './ApiStyles';
+import {
+    View, Button, FlatList, ActivityIndicator, Alert,
+    Text, 
+    TouchableOpacity
+} from "react-native";
 
-export function MMICScreen() {
-    return (
-      <View style={styles.supercontainer}>
 
-          <View style={styles.searchBox}>
-            <TouchableOpacity style={styles.aBtntext}><Text style={styles.texB}>AGE</Text></TouchableOpacity>
-            <TouchableOpacity style={styles.searchF}><TextInput style={styles.texB} keyboardType={'numeric'} /></TouchableOpacity>
+class ApiContainer extends Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+           loading: false,
+            axiosData: [],
+
+            lat: 0,
+            long: 0,
+    
+        };
+  
+
+    };
+
+ 
+
+    async componentWillMount(){
+        navigator.geolocation.getCurrentPosition(
+			position => {
+				
+                this.setState({
+                    lat: position.coords.latitude,
+                    long: position.coords.longitude,
+                })
+                console.log(this.state.lat);
+			},
+			error => Alert.alert(error.message),
+			{ enableHighAccuracy: true, timeout: 20000, maximumAge: 1000 }
+        );
+         
+    }
+
+     
+
+    goForAxios = () => {
+        this.setState({
+            loading: true,
+
+        })
+        
+        fetch(`https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${this.state.lat},${this.state.long}&${API_KEY}`)
+              .then(response => response.json())
+              .then((responseJson) => {
+                  console.log('getting data from fetch', responseJson)
+                  setTimeout(() => {
+                      this.setState({
+                          loading: false,
+                          axiosData:(responseJson)
+                      })
+                  }, 2000)
+
+              })
+              .catch(error => console.log(error))       
+                      
+    }
+
+    render() {
+        const {  fromAxios, loading, axiosData } = this.state
+        
+        return (
+            <View style={styles.parentContainer}>
+             <View>
+                <Text style={styles.textStyle}>Nearby ATMs</Text>
+            </View>
+            <View style={{ margin: 18 }}>
+                <Button
+                    title={'Click'}
+                    onPress={
+                        this.goForAxios
+                    }
+                    color='green'
+                />
+            </View>
+
+            {
+                <Text>{JSON.stringify(axiosData)}</Text>
+            }
+            {loading &&
+                <View style={styles.loader}>
+                    <ActivityIndicator size="large" color="#0c9" />
+                    <Text style={{fontSize:16,color:'red'}}>Loading Data...</Text>
+                </View>
+            }
           </View>
 
-          <Text style={styles.texB}>Subsequest screens will be as in the wireframes</Text>
 
-        </View>
-      );
-  }
+        );
+    }
+}
+
+export default ApiContainer;
+

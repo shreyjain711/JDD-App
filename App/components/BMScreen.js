@@ -1,38 +1,131 @@
 import React, { Component } from 'react';
-import { ScrollView, Platform, StyleSheet, Text, View, Button, TouchableOpacity, TextInput } from 'react-native';
-import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
-import Header from './Header';
-import { HomeScreen } from './HomeScreen';
-var styles = require('../style');
+import axios from 'axios';
+import styles from './ApiStyles';
+import {
+    View, Button, FlatList, ActivityIndicator, Alert,
+    Text, List, 
+    TouchableOpacity
+} from "react-native";
 
-export function BMScreen() {
-    return (
-      <View style={styles.supercontainer}>
 
-          <View style={styles.searchBox}>
-            <TouchableOpacity style={styles.aBtntext}><Text style={styles.texB}>Search</Text></TouchableOpacity>
-            <TouchableOpacity style={styles.searchF}><TextInput style={styles.texB}/></TouchableOpacity>
+class ApiContainer extends Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+           loading: false,
+            axiosData: [],
+
+            lat: 0,
+            long: 0,
+    
+        };
+  
+
+    };
+
+
+    async componentWillMount(){
+        navigator.geolocation.getCurrentPosition(
+			position => {
+				
+                this.setState({
+                    lat: position.coords.latitude,
+                    long: position.coords.longitude,
+                })
+                console.log(this.state.lat);
+			},
+			error => Alert.alert(error.message),
+			{ enableHighAccuracy: true, timeout: 20000, maximumAge: 1000 }
+        );
+         
+    }
+
+     
+
+    goForAxios = () => {
+        this.setState({
+            loading: true,
+
+        })
+        
+        fetch(`https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${this.state.lat},${this.state.long}&type=atm&radius=1000&key=`)
+              .then(response => response.json())
+              .then((responseJson) => {
+                  console.log('getting data from fetch', responseJson)
+                  setTimeout(() => {
+                      this.setState({
+                          loading: false,
+                          axiosData:(responseJson.results)
+                      })
+                  }, 2000)
+
+              })
+              .catch(error => console.log(error))       
+        
+              
+    }
+
+    FlatListSeparator = () => {
+        return (
+            <View style={{
+                height: .5,
+                width: "100%",
+                backgroundColor: "rgba(0,0,0,0.5)",
+            }}
+            />
+        );
+    }
+
+    renderItem = (data) => {
+        return (
+            <TouchableOpacity style={styles.list}>
+                <Text style={styles.lightText}>{data.item.name}</Text>
+                <Text style={styles.lightText}>{data.item.vicinity}</Text>
+                </TouchableOpacity>
+        )
+
+    }
+
+    render() {
+        const {  fromAxios, loading, axiosData } = this.state
+        
+        return (
+            <View style={styles.parentContainer}>
+             <View>
+                <Text style={styles.textStyle}>Nearby ATMs</Text>
+            </View>
+            <View style={{ margin: 18 }}>
+                <Button
+                    title={'Click'}
+                    onPress={
+                        this.goForAxios
+                    }
+                    color='green'
+                />
+            </View>
+
+            {
+
+                <FlatList
+                data={axiosData}
+                //ItemSeparatorComponent={FlatListItemSeparator}
+                renderItem={item => this.renderItem(item)}
+                keyExtractor={item => item.id.toString()}
+                />
+            }
+            {loading &&
+                <View style={styles.loader}>
+                    <ActivityIndicator size="large" color="#0c9" />
+                    <Text style={{fontSize:16,color:'red'}}>Loading Data...</Text>
+                </View>
+            }
           </View>
 
-          <View style={styles.buttoncontainerB}>
-            <TouchableOpacity style={styles.aBtntext}><Text style={styles.texB}>Bank Mitra SBI</Text></TouchableOpacity>
-            <TouchableOpacity style={styles.aBtnicon}><Text style={styles.icnB}>Nav</Text></TouchableOpacity>
-            <TouchableOpacity style={styles.aBtnicon}><Text style={styles.icnB}>Call</Text></TouchableOpacity>
-            <TouchableOpacity style={styles.aBtnicon}><Text style={styles.icnB}>+</Text></TouchableOpacity>
-            <Text style={styles.disB}>90m</Text>
-          </View>
 
+        );
+    }
+}
 
-          <View style={styles.buttoncontainerB}>
-            <TouchableOpacity style={styles.aBtntext}><Text style={styles.texB}>ICICI Bank Mitra</Text></TouchableOpacity>
-            <TouchableOpacity style={styles.aBtnicon}><Text style={styles.icnB}>Nav</Text></TouchableOpacity>
-            <TouchableOpacity style={styles.aBtnicon}><Text style={styles.icnB}>Call</Text></TouchableOpacity>
-            <TouchableOpacity style={styles.aBtnicon}><Text style={styles.icnB}>+</Text></TouchableOpacity>
-            <Text style={styles.aBtndist}>1.8k</Text>
-          </View>
+export default ApiContainer;
 
-
-        </View>
-      );
-  }
