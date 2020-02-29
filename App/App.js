@@ -4,12 +4,12 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import Header from './components/Header';
 import { HomeScreen } from './components/HomeScreen'
-import { ATMScreen } from './components/ATMScreen';
-import { BankScreen } from './components/BankScreen';
-import { BMScreen } from './components/BMScreen';
-import { POScreen } from './components/POScreen';
-import { CSCScreen } from './components/CSCScreen';
-import { MMICScreen } from './components/MMICScreen';
+import  ATMScreen  from './components/ATMScreen';
+import  BankScreen  from './components/BankScreen';
+import  BMScreen  from './components/BMScreen';
+import  POScreen  from './components/POScreen';
+import  CSCScreen  from './components/CSCScreen';
+import  MMICScreen  from './components/MMICScreen';
 
 
 
@@ -59,3 +59,6 @@ function App() {
 }
 
 export default App;
+
+
+
