@@ -15,7 +15,7 @@
     "mapmyindia-restapi-react-native-beta": "0.0.8",
     "react": "~16.9.0",
     "react-dom": "~16.9.0",
-    "react-native": "~0.61.4",
+    "react-native": "~0.75.2",
     "react-native-gesture-handler": "^1.5.6",
     "react-native-get-location": "^1.4.2",
     "react-native-paper": "^3.6.0",
@@ -29,8 +29,8 @@
   },
   "devDependencies": {
     "@babel/core": "~7.6.0",
-    "babel-jest": "~24.9.0",
-    "jest": "~24.9.0",
+    "babel-jest": "~29.7.0",
+    "jest": "~29.7.0",
     "metro-react-native-babel-preset": "~0.56.0",
     "react-test-renderer": "~16.9.0"
   },
